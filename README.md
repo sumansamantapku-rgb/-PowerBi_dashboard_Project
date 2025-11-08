@@ -28,7 +28,9 @@ SQL (Optional),Used for initial data extraction or storage (if applicable).
 GitHub,Version control and project hosting.
 
 
-📁 Repository StructureThe project files are organized as follows:├── data/
+📁 Repository StructureThe project files are organized as follows:
+
+├── data/
 │   ├── spotify_data_raw.csv         # Raw, unprocessed data file
 │   └── spotify_data_cleaned.csv     # Final, cleaned dataset used for the report
 ├── documentation/
