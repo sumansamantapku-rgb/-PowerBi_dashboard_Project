@@ -46,6 +46,120 @@ GitHub,Version control and project hosting.
 (https://app.powerbi.com/links/9M-mlfHgQq?ctid=c181540e-95e2-408b-aead-cdef017d0b5f&pbi_source=linkShare&bookmarkGuid=43dd951e-99d0-4cda-9274-2d51d53c69ee)
 
 2. Exploring LocallyTo open and explore the report in Power BI Desktop:Clone the repository:
+   https://github.com/sumansamantapku-rgb/-PowerBi_dashboard_Project
+   
+3.Download Power BI Desktop: Ensure you have the latest version installed.
+
+Open the file: Double-click the Spotify_Analysis_Report.pbix file.
+
+Data Source Check: Power BI may prompt you to refresh the data. The data sources are configured to look at the .csv files in the data/ folder.
+
+
+🔍 Data Source
+The data used in this analysis was sourced from google gemini
+
+
+🔍DAX measurements which are used by the following data source:
+DEFINE 
+    // 🔹 Popularity Metrics
+    MEASURE 'Top-50-world'[Average Popularity] = AVERAGE('Top-50-world'[popularity])
+    MEASURE 'Top-50-world'[Max Popularity] = MAX('Top-50-world'[popularity])
+    MEASURE 'Top-50-world'[Min Popularity] = MIN('Top-50-world'[popularity])
+
+    // 🔹 Position Metrics
+    MEASURE 'Top-50-world'[Average Chart Position] = AVERAGE('Top-50-world'[position])
+    MEASURE 'Top-50-world'[Best Chart Position] = MIN('Top-50-world'[position])
+    MEASURE 'Top-50-world'[Worst Chart Position] = MAX('Top-50-world'[position])
+    MEASURE 'Top-50-world'[Number of #1 Hits] = 
+        CALCULATE(
+            COUNTROWS('Top-50-world'),
+            'Top-50-world'[position] = 1
+        )
+
+    // 🔹 Song & Artist Counts
+    MEASURE 'Top-50-world'[Total Songs] = DISTINCTCOUNT('Top-50-world'[song])
+    MEASURE 'Top-50-world'[Total Artists] = DISTINCTCOUNT('Top-50-world'[artist])
+    MEASURE 'Top-50-world'[Average Songs per Artist] = 
+        DIVIDE([Total Songs], [Total Artists])
+
+    // 🔹 Duration Metrics
+    MEASURE 'Top-50-world'[Average Song Duration (min)] = 
+        DIVIDE(AVERAGE('Top-50-world'[duration_ms]), 60000)
+    MEASURE 'Top-50-world'[Shortest Song (min)] = 
+        DIVIDE(MIN('Top-50-world'[duration_ms]), 60000)
+    MEASURE 'Top-50-world'[Longest Song (min)] = 
+        DIVIDE(MAX('Top-50-world'[duration_ms]), 60000)
+
+    // 🔹 Album Insights
+    MEASURE 'Top-50-world'[Average Album Tracks] = AVERAGE('Top-50-world'[total_tracks])
+    MEASURE 'Top-50-world'[Singles Count] = 
+        CALCULATE(COUNTROWS('Top-50-world'), 'Top-50-world'[album_type] = "single")
+    MEASURE 'Top-50-world'[Albums Count] = 
+        CALCULATE(COUNTROWS('Top-50-world'), 'Top-50-world'[album_type] = "album")
+
+    // 🔹 Explicit Content
+    MEASURE 'Top-50-world'[Explicit Songs] = 
+        CALCULATE(COUNTROWS('Top-50-world'), 'Top-50-world'[is_explicit] = TRUE())
+    MEASURE 'Top-50-world'[Non-Explicit Songs] = 
+        CALCULATE(COUNTROWS('Top-50-world'), 'Top-50-world'[is_explicit] = FALSE())
+    MEASURE 'Top-50-world'[Explicit Song %] = 
+        DIVIDE([Explicit Songs], [Total Songs])
+
+// 🔹 Release & Recency (Fixed)
+MEASURE 'Top-50-world'[Average Release Year] =
+    AVERAGEX('Top-50-world', YEAR('Top-50-world'[release_date]))
+
+MEASURE 'Top-50-world'[Most Recent Release Year] =
+    MAXX('Top-50-world', YEAR('Top-50-world'[release_date]))
+
+MEASURE 'Top-50-world'[Oldest Release Year] =
+    MINX('Top-50-world', YEAR('Top-50-world'[release_date]))
+
+
+    // 🔹 Chart Dynamics
+    MEASURE 'Top-50-world'[Total Chart Entries] = COUNTROWS('Top-50-world')
+    MEASURE 'Top-50-world'[Unique Chart Dates] = DISTINCTCOUNT('Top-50-world'[date])
+    MEASURE 'Top-50-world'[Average Songs per Chart Date] = 
+        DIVIDE([Total Chart Entries], [Unique Chart Dates])
+    MEASURE 'Top-50-world'[Average Popularity Trend per Date] = 
+        AVERAGEX(VALUES('Top-50-world'[date]), [Average Popularity])
+        
+EVALUATE
+    SUMMARIZECOLUMNS(
+        "Average Popularity", [Average Popularity],
+        "Max Popularity", [Max Popularity],
+        "Min Popularity", [Min Popularity],
+        "Average Chart Position", [Average Chart Position],
+        "Best Chart Position", [Best Chart Position],
+        "Worst Chart Position", [Worst Chart Position],
+        "Number of #1 Hits", [Number of #1 Hits],
+        "Total Songs", [Total Songs],
+        "Total Artists", [Total Artists],
+        "Average Songs per Artist", [Average Songs per Artist],
+        "Average Song Duration (min)", [Average Song Duration (min)],
+        "Shortest Song (min)", [Shortest Song (min)],
+        "Longest Song (min)", [Longest Song (min)],
+        "Average Album Tracks", [Average Album Tracks],
+        "Singles Count", [Singles Count],
+        "Albums Count", [Albums Count],
+        "Explicit Songs", [Explicit Songs],
+        "Non-Explicit Songs", [Non-Explicit Songs],
+        "Explicit Song %", [Explicit Song %],
+        "Average Release Year", [Average Release Year],
+        "Most Recent Release Year", [Most Recent Release Year],
+        "Oldest Release Year", [Oldest Release Year],
+        "Total Chart Entries", [Total Chart Entries],
+        "Unique Chart Dates", [Unique Chart Dates],
+        "Average Songs per Chart Date", [Average Songs per Chart Date],
+        "Average Popularity Trend per Date", [Average Popularity Trend per Date]
+    )
+
+
+
+🤝 Contribution
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request!
+
+
 
 
 
