@@ -161,6 +161,14 @@ EVALUATE
     )
 
 
+The final reasults will seems like that:
+![Alt Text](https://github.com/sumansamantapku-rgb/-PowerBi_dashboard_Project/blob/main/Overview%20of%20the%20dashboard.png?raw=true)
+
+
+![Alt Text](https://github.com/sumansamantapku-rgb/-PowerBi_dashboard_Project/blob/main/Artist%20Section.png?raw=true)
+
+
+![Alt Text](https://github.com/sumansamantapku-rgb/-PowerBi_dashboard_Project/blob/main/Songs%20section.png?raw=true)
 
 🤝 Contribution
 If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request!
