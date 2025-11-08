@@ -47,12 +47,12 @@ GitHub,Version control and project hosting.
 1. Viewing the Live Report (Recommended)The published report can be viewed directly on the Power BI Service via this link:
 (https://app.powerbi.com/links/9M-mlfHgQq?ctid=c181540e-95e2-408b-aead-cdef017d0b5f&pbi_source=linkShare&bookmarkGuid=43dd951e-99d0-4cda-9274-2d51d53c69ee)
 
-2. Exploring LocallyTo open and explore the report in Power BI Desktop:Clone the repository:
+2. Exploring LocallyTo open and explore the report in Power BI Desktop:
    https://github.com/sumansamantapku-rgb/-PowerBi_dashboard_Project
    
 3.Download Power BI Desktop: Ensure you have the latest version installed.
 
-Open the file: Double-click the Spotify_Analysis_Report.pbix file.
+4.Open the file: Double-click the spotify_Top_50 World
 
 Data Source Check: Power BI may prompt you to refresh the data. The data sources are configured to look at the .csv files in the data/ folder.
 
