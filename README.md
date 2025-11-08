@@ -4,6 +4,7 @@ This is PowerBi end to end project
 
 🎧 Spotify Power BI Dashboard Analysis
 ✨ Project Overview
+
 This repository contains the source data, Power BI report file, and documentation for a comprehensive data analysis of Spotify listening habits and music characteristics. The project utilizes Power BI to transform and visualize data, providing insights into popular tracks, artist performance, and key audio features (e.g., danceability, energy, acousticness).
 
 📊 Dashboard Features
